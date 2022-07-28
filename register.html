@@ -9,16 +9,18 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div>
-        <h1>ชื่อเว็บ</h1>
-        <img src="" alt="">
-    </div>
-    <div>
-        <h2>ลงทะเบียน</h1>
-        <input type="text" placeholder="ชื่อผู้ใช้">
-        <input type="password" placeholder="รหัสผ่าน">
-        <input type="password" placeholder="ยืนยันรหัสผ่าน">
-        <button>ยืนยัน</button>
+    <div id="app">
+        <div>
+            <h1>ชื่อเว็บ</h1>
+            <img src="" alt="">
+        </div>
+        <div>
+            <h2>ลงทะเบียน</h1>
+            <input type="text" placeholder="ชื่อผู้ใช้" v-model="username">
+            <input type="password" placeholder="รหัสผ่าน" v-model="password">
+            <input type="password" placeholder="ยืนยันรหัสผ่าน" v-model="confirm_password">
+            <button @click="register">ยืนยัน</button>
+        </div>
     </div>
 
     <script src="app.js"></script>

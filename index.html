@@ -9,13 +9,15 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div>
-        <h1>ชื่อเว็บ</h1>
-        <img src="" alt="">
-    </div>
-    <div>
-        <button>เข้าสู่ระบบ</button>
-        <button>ลงทะเบียนบัญชีใหม่</button>
+    <div id="app">
+        <div>
+            <h1>ชื่อเว็บ</h1>
+            <img src="" alt="">
+        </div>
+        <div>
+            <button @click="goToLogin">เข้าสู่ระบบ</button>
+            <button @click="goToRegister">ลงทะเบียนบัญชีใหม่</button>
+        </div>
     </div>
 
     <script src="app.js"></script>
