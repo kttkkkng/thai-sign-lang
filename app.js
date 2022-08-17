@@ -1,3 +1,5 @@
+const url = "http://localhost:3000";
+
 const app = Vue.createApp({
     data () {
         return {
@@ -8,26 +10,56 @@ const app = Vue.createApp({
     },
     methods: {
         goToLogin () {
-            console.log("test");
             window.location = "/login.html";
         },
         goToRegister () {
             window.location = "/register.html";
         },
-        login () {
+        async login () {
             if (this.username == "" || this.password == "") {
                 alert("please enter username and password");
             } else {
-                // TODO axios
+                let response;
+                try {
+                    response = await axios.post(url + "/user/login", { username: this.username, password: this.password });
+                } catch (err) {
+                    if (err.response) {
+                        if (err.response.status == "400") {
+                            alert(err.response.data.message);
+                        } else {
+                            console.log(err.response.status);
+                        }
+                        return;
+                    } else {
+                        return alert("cannot connect to backend");
+                    }
+                }
+                alert("success");
+                $cookies.set("token", response.data.token,  "7d");
             }
         },
-        register () {
+        async register () {
             if (this.username == "" || this.password == "" || this.confirm_password == "") {
                 alert("please enter username and password");
             } else if (this.password != this.confirm_password) {
                 alert("please enter same password");
             } else {
-                // TODO axios
+                let response;
+                try {
+                    response = await axios.post(url + "/user/register", { username: this.username, password: this.password, confirm_password: this.confirm_password });
+                } catch (err) {
+                    if (err.response) {
+                        if (err.response.status == "400") {
+                            alert(err.response.data.message);
+                        } else {
+                            console.log(err.response.status);
+                        }
+                        return;
+                    } else {
+                        return alert("cannot connect to backend");
+                    }
+                }
+                alert("success");
             }
         }
     }
