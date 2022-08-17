@@ -1,0 +1,50 @@
+
+
+.Panel {
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    left: 50%;
+    width: 50%;
+    position: fixed;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+}
+
+.Login1 {
+    border: none;
+    color: white;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    font-size: 30px;
+    background-color:#797e5cff;
+}
+
+.Regis1 {
+    border: none;
+    color: white;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    font-size: 30px;
+    background-color: #a2b8abff;
+}
+
+

@@ -4,21 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="Top_Page.css">
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div id="app">
-        <div>
-            <h1>ชื่อเว็บ</h1>
-            <img src="" alt="">
+        <div class="Top">
+            <h1 class="Name">ชื่อเว็บ</h1>
+            <img class="Icon1" src="Profile.PNG" alt="icon" width="50" height="50">
         </div>
-        <div>
-            <h2>เข้าสู่ระบบ</h1>
-            <input type="text" placeholder="ชื่อผู้ใช้" v-model="username">
-            <input type="password" placeholder="รหัสผ่าน" v-model="password">
-            <button @click="login">ยืนยัน</button>
+        <div class="Panel_Login">
+            <h2 class="Login_Header">เข้าสู่ระบบ</h1>
+            <input class="User" type="text" placeholder="ชื่อผู้ใช้" v-model="username">
+            <br>
+            <input class="User" type="password" placeholder="รหัสผ่าน" v-model="password">
+            <br>
+            <button class="Confirm" @click="login">ยืนยัน</button>
         </div>
     </div>
 

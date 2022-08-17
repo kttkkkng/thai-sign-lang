@@ -1,0 +1,72 @@
+.Panel_Login {
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    left: 50%;
+    width: 50%;
+    position: fixed;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+}
+
+.User {
+    background-color: #efefefff;
+}
+
+.Login_Header {
+    color: #797e5c;
+    font-size: 30px;
+}
+
+.User {
+    border: none;
+    color: black;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 5px;
+    background-color:#efefefff;
+}
+
+::placeholder {
+    color: #999999;
+}
+
+.Confirm {
+    border: none;
+    color: white;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 5px;
+    background-color:#a2b8abff;
+}
+
+.Panel_Login2 {
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    left: 50%;
+    width: 50%;
+    position: fixed;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+}

@@ -1,0 +1,96 @@
+.Name {
+    display: flex;
+    color: white;
+    justify-content: left;
+    align-items: center;
+    position: absolute;
+    left: 3%;
+    top: 25%;
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
+}
+
+.Icon2 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    position: absolute;
+    left: 95%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+}
+
+.Top {
+    height: 15%;
+    background-color: #f8a54aff;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    margin: 0%;
+    background-color: #f5e6d8ff;
+}
+
+.Unit {
+    border: none;
+    color: white;
+    position: absolute;
+    width: 10%;
+    height: 65px;
+    position: absolute;
+    left: 15%;
+    top: 12%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 5px;
+    background-color:#e7581aff;
+
+}
+
+.Goal {
+    border: none;
+    color: white;
+    position: absolute;
+    width: 10%;
+    height: 65px;
+    position: absolute;
+    left: 26%;
+    top: 12%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 5px;
+    background-color:#797e5cff;
+}
+
+.Library {
+    border: none;
+    color: white;
+    position: absolute;
+    width: 10%;
+    height: 65px;
+    position: absolute;
+    left: 37%;
+    top: 12%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 5px;
+    background-color:#6b5948ff;
+}
+
+.Profile {
+    border: none;
+    color: #797e5c;
+    background-color: #eeeeeeff;
+    position: absolute;
+    width: 10%;
+    height: 65px;
+}
