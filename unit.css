@@ -1,0 +1,36 @@
+.Unit1 {
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    left: 50%;
+    width: 25%;
+    position: fixed;
+    top: 32%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+}
+
+.Unit1_Name {
+    color: #797e5c;
+    text-decoration-line: underline;
+    text-decoration-color: #797e5c;
+    font-size: 35px;
+}
+
+.Text1 {
+    color: #53b9ae;
+}
+
+.Unit1_Lesson1 {
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    left: 28%;
+    width: 20%;
+    position: fixed;
+    top: 65%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+}
