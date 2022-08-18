@@ -32,5 +32,45 @@
     top: 65%;
     transform: translate(-50%, -50%);
     text-align: center;
-    background-color: white;
+    background-color: #f8a54aff;
+}
+
+.Lesson1 {
+    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+}
+
+.Test1 {
+    border-radius: 20px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    left: 50%;
+    height: 5%;
+    width: 20%;
+    position: fixed;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: #e7581aff;
+}
+
+.Unit1_Lesson2 {
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    left: 72%;
+    width: 20%;
+    position: fixed;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #f8a54aff;
+}
+
+.Lesson2 {
+    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: white;
 }
