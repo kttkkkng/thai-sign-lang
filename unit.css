@@ -4,7 +4,7 @@
     padding-bottom: 12px;
     left: 50%;
     width: 25%;
-    position: fixed;
+    position: absolute;
     top: 32%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -28,7 +28,7 @@
     padding-bottom: 12px;
     left: 28%;
     width: 20%;
-    position: fixed;
+    position: absolute;
     top: 65%;
     transform: translate(-50%, -50%);
     text-align: center;
