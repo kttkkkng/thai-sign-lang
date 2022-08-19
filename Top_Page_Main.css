@@ -32,6 +32,9 @@
 body {
     margin: 0%;
     background-color: #f5e6d8ff;
+}
+
+body * {
     font-family: "Kodchasan";
 }
 

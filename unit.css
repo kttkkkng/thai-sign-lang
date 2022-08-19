@@ -29,7 +29,7 @@
     left: 26%;
     width: 20%;
     position: absolute;
-    top: 65%;
+    top: 60%;
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: #f8a54aff;
@@ -43,13 +43,13 @@
 
 .Test1 {
     border-radius: 20px;
-    padding-top: 5%;
-    padding-bottom: 6%;
+    padding-top: 4%;
+    padding-bottom: 4%;
     left: 50%;
-    height: 3%;
+    height: 5%;
     width: 20%;
     position: absolute;
-    top: 90%;
+    top: 85%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
@@ -63,7 +63,7 @@
     left: 74%;
     width: 20%;
     position: absolute;
-    top: 125%;
+    top: 120%;
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: #f8a54aff;
@@ -77,13 +77,13 @@
 
 .Test2 {
     border-radius: 20px;
-    padding-top: 5%;
-    padding-bottom: 6%;
+    padding-top: 4%;
+    padding-bottom: 4%;
     left: 50%;
-    height: 3%;
+    height: 5%;
     width: 20%;
     position: absolute;
-    top: 150%;
+    top: 145%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
@@ -93,4 +93,101 @@
 .Unit_1 {
     position: relative;
     height: 80%;
+}
+
+.Unit_2 {
+    position: relative;
+    height: 80%;
+}
+
+.Unit2 {
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    left: 50%;
+    width: 25%;
+    position: absolute;
+    top: 100%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: white;
+}
+
+.Unit2_Name {
+    color: #797e5c;
+    text-decoration-line: underline;
+    text-decoration-color: #797e5c;
+    font-size: 35px;
+}
+
+.Text2 {
+    color: #53b9ae;
+}
+
+.Unit2_Lesson3 {
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    left: 26%;
+    width: 20%;
+    position: absolute;
+    top: 135%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #f8a54aff;
+}
+
+.Lesson3 {
+    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+}
+
+.Test3 {
+    border-radius: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    left: 50%;
+    height: 5%;
+    width: 20%;
+    position: absolute;
+    top: 160%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: #e7581aff;
+}
+
+.Unit2_Lesson4 {
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    left: 74%;
+    width: 20%;
+    position: absolute;
+    top: 195%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #f8a54aff;
+}
+
+.Lesson4 {
+    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+}
+
+.Test4 {
+    border-radius: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    left: 50%;
+    height: 5%;
+    width: 20%;
+    position: absolute;
+    top: 220%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background-color: #e7581aff;
 }
