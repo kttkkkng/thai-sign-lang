@@ -41,33 +41,35 @@ body {
     position: absolute;
     width: 10%;
     height: 65px;
-    position: absolute;
     left: 15%;
-    top: 12%;
+    top: 50%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
     border-radius: 10px;
     background-color:#e7581aff;
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
 
 }
 
 .Goal {
     border: none;
     color: white;
-    position: absolute;
     width: 10%;
     height: 65px;
     position: absolute;
     left: 26%;
-    top: 12%;
+    top: 50%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
     border-radius: 10px;
     background-color:#797e5cff;
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
 }
 
 .Library {
@@ -76,15 +78,16 @@ body {
     position: absolute;
     width: 10%;
     height: 65px;
-    position: absolute;
     left: 37%;
-    top: 12%;
+    top: 50%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 25px;
     border-radius: 10px;
     background-color:#6b5948ff;
+    -ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
 }
 
 .Profile {
@@ -108,4 +111,3 @@ body {
     position: absolute;
     top: 2%;
 }
-
