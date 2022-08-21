@@ -1,0 +1,34 @@
+.lib_Unit1 {
+    border: none;
+    color: #797e5cff;
+    width: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    left: 20%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    font-size: 30px;
+    background-color:white;
+}
+
+.lib_Unit2 {
+    border: none;
+    color: #797e5cff;
+    width: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    font-size: 30px;
+    background-color: white;
+}
