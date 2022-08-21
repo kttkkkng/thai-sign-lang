@@ -53,15 +53,15 @@
             canvas.width = video.clientWidth;
             canvas.height = video.clientHeight;
 
-            let ctx = canvas.getContext("2d");
+            let ctx = await canvas.getContext("2d");
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
             document.getElementById("app").appendChild(canvas);
 
-            let image = canvas.toDataURL("image/jpeg");
+            let image = await canvas.toDataURL("image/jpeg");
 
             try {
-                response = await axios.post(url + "/mediapipe/predict", image, {
+                response = await axios.post(url + "/mediapipe/predict", {uploaded_file:image}, {
                     "Content-Type": "image/jpeg",
                 });
             } catch (err) {
@@ -91,7 +91,7 @@
             }, 200);
         };
 
-        create();
+        //create();
     </script>
 </body>
 </html>
