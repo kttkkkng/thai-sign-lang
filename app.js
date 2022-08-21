@@ -74,6 +74,8 @@ const app = Vue.createApp({
                 tracks.forEach(track => {
                     track.stop();
                 });
+
+                clearInterval(timer);
             } else {
                 navigator.mediaDevices
                 .getUserMedia(constraints)
@@ -83,6 +85,10 @@ const app = Vue.createApp({
                 .catch(error => {
                     console.log(error);
                 });
+
+                timer = setInterval(() => {
+                    capture();
+                }, 200);
             }
         },
         async capture() {

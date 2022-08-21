@@ -11,6 +11,7 @@
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue-cookies@1.8.1/vue-cookies.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="app">
@@ -25,8 +26,9 @@
             <h1 @click="toggleCamera">word</h1>
 
             <video id="camera" autoplay="true" class="camera"></video>
+
+            <button @click="capture">ถ่าย</button>
         </div>
-        <button @click="capture">ถ่าย</button>
     </div>
 
     <script>
@@ -50,33 +52,37 @@
     <script src="app.js"></script>
     <script async>
         const capture = async () => {
+            let video = document.getElementById('camera');
+
             canvas.width = video.clientWidth;
             canvas.height = video.clientHeight;
 
             let ctx = await canvas.getContext("2d");
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            await ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            let formData = new FormData();
 
-            document.getElementById("app").appendChild(canvas);
-
-            let image = await canvas.toDataURL("image/jpeg");
-
-            try {
-                response = await axios.post(url + "/mediapipe/predict", {uploaded_file:image}, {
-                    "Content-Type": "image/jpeg",
+            await canvas.toBlob(blob => {
+                formData.append("image", blob);
+                
+                axios({
+                    method: "post",
+                    url: url + "/mediapipe/predict",
+                    data: formData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                })
+                .then(function (response) {
+                    //handle success
+                    console.log(response);
+                })
+                .catch(function (response) {
+                    //handle error
+                    console.log(response);
                 });
-            } catch (err) {
-                if (err.response) {
-                    if (err.response.status == "400") {
-                        alert(err.response.data.message);
-                    } else {
-                        console.log(err.response.status);
-                    }
-                    return;
-                } else {
-                    return alert("cannot connect to backend");
-                }
-            }
-        }
+            }, "image/jpeg");
+        };
+
+        let timer;
 
         const create = async () => {
             let response;
@@ -86,7 +92,7 @@
                 throw "backend not exist";
             }
 
-            const timer = setInterval(() => {
+            timer = setInterval(() => {
                 capture();
             }, 200);
         };
