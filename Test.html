@@ -22,9 +22,56 @@
             <h2 class="Choice2">คำตอบ 2</h2>
             <h2 class="Choice3">คำตอบ 3</h2>
             <h2 class="Choice4">คำตอบ 4</h2>
-            <button class="Next" @click="goToRegister">ตรวจคำตอบ</button>
-            <img class="Back" src="Picture/CrossB.png" alt="Back" width="50" height="40">
+            <button id="check" class="Next" @click="nextTestQuestion">ตรวจคำตอบ</button>
+            <img class="Back" src="Picture/CrossB.png" alt="Back" width="50" height="40" @click="goToUnit">
         </div>
     </div>
+
+    <script src="app.js"></script>
+    <script>
+        const get_question = async () => {
+            if (!$cookies.isKey('token')) {
+                window.location = "/login.html";
+            }
+
+            let response;
+
+            try {
+                response = await axios.post(url + "/test/question", { unit: unit }, {
+                    headers: {
+                        "Authorization": `Bearer ${$cookies.get('token')}`,
+                    },
+                });
+            } catch (err) {
+                //TODO 403
+                console.log(err);
+                alert("failed to connect to backend");
+            }
+
+            console.log(response.data);
+            console.log(question);
+
+            question = response.data.question;
+
+            console.log(question);
+
+            let pic = document.getElementsByClassName("Test_Picture")[0];
+            
+            let choice1 = document.getElementsByClassName("Choice1")[0];
+            let choice2 = document.getElementsByClassName("Choice2")[0];
+            let choice3 = document.getElementsByClassName("Choice3")[0];
+            let choice4 = document.getElementsByClassName("Choice4")[0];
+
+            let choices = [choice1, choice2, choice3, choice4];
+
+            pic.src = `Picture/${question[0].id}.jpg`;
+
+            choices.forEach((choice, index) => {
+                choice.textContent = question[0].choice[index];
+            });
+        };
+
+        get_question();
+    </script>
 </body>
 </html>

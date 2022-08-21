@@ -1,5 +1,11 @@
 const url = "http://localhost:3000";
 
+let question = [];
+let current = 1;
+let done = false;
+let unit = 1;
+let answer;
+
 const app = Vue.createApp({
     data () {
         return {
@@ -15,6 +21,13 @@ const app = Vue.createApp({
         },
         goToRegister () {
             window.location = "/register.html";
+        },
+        goToUnit () {
+            window.location = "/unit.html";
+        },
+        goToTest (des) {
+            unit = des;
+            window.location = "/Test.html"
         },
         async login () {
             if (this.username == "" || this.password == "") {
@@ -35,8 +48,9 @@ const app = Vue.createApp({
                         return alert("cannot connect to backend");
                     }
                 }
-                alert("success");
                 $cookies.set("token", response.data.token,  "7d");
+
+                window.location = "/unit.html";
             }
         },
         async register () {
@@ -91,9 +105,37 @@ const app = Vue.createApp({
                 }, 200);
             }
         },
-        async capture() {
+        async capture () {
             capture();
-        }
+        },
+        async nextTestQuestion () {
+            if (!done) return;
+            if (current + 1 < question.length) {
+                done = false;
+
+                let response;
+
+                try {
+                    response = axios.post(url + "/test/answer", { word_id: question[current].id, answer: answer });
+                } catch (err) {
+
+                }
+
+                current++;
+
+                pic.src = `${question[current].id}.jpg`;
+
+                choices.forEach((choice, index) => {
+                    choice.textContent = question[current].choice[index];
+                });
+            } else if (current + 1 == question.length) {
+                current++;
+
+                document.getElementById("check").textContent = "เสร็จสิ้น";
+            } else if (document.getElementById("check").textContent == "เสร็จสิ้น") {
+                window.location = "/unit.html";
+            }
+        },
     }
 });
 
