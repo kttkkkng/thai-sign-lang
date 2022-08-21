@@ -1,34 +1,33 @@
-.lib_Unit1 {
+
+.Unit2 {
     border: none;
     color: #797e5cff;
     width: 30%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    left: 20%;
+    height: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     border-radius: 10px;
-    font-size: 30px;
-    background-color:white;
+    font-size: 40px;
+    background-color: white;
+    left: 55%;
+    top: 40%;
+    position: absolute;
 }
 
-.lib_Unit2 {
-    border: none;
-    color: #797e5cff;
-    width: 30%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 10px;
-    font-size: 30px;
-    background-color: white;
+.Topic {
+    display: flex;
+    color: #6b5948ff;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    font-size: 60px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
+

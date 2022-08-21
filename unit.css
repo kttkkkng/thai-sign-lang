@@ -1,7 +1,7 @@
 .Unit1 {
     border-radius: 20px;
-    padding-top: 8px;
-    padding-bottom: 12px;
+    padding-top: 4%;
+    padding-bottom: 4%;
     left: 50%;
     width: 25%;
     position: absolute;
@@ -22,23 +22,23 @@
     color: #53b9ae;
 }
 
-.Unit1_Lesson1 {
-    border-radius: 20px;
-    padding-top: 8px;
-    padding-bottom: 12px;
-    left: 26%;
-    width: 20%;
-    position: absolute;
-    top: 60%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background-color: #f8a54aff;
-}
+
 
 .Lesson1 {
     color: white;
     text-decoration-line: underline;
     text-decoration-color: white;
+    text-align: center;
+    border-radius: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    left: 26%;
+    width: 20%;
+    height: 5%;
+    position: absolute;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    background-color: #f8a54aff;
 }
 
 .Test1 {
@@ -56,23 +56,23 @@
     background-color: #e7581aff;
 }
 
-.Unit1_Lesson2 {
-    border-radius: 20px;
-    padding-top: 8px;
-    padding-bottom: 12px;
-    left: 74%;
-    width: 20%;
-    position: absolute;
-    top: 120%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background-color: #f8a54aff;
-}
+
 
 .Lesson2 {
     color: white;
     text-decoration-line: underline;
     text-decoration-color: white;
+    border-radius: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    left: 74%;
+    width: 20%;
+    height: 5%;
+    position: absolute;
+    top: 118%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #f8a54aff;
 }
 
 .Test2 {
@@ -83,7 +83,7 @@
     height: 5%;
     width: 20%;
     position: absolute;
-    top: 145%;
+    top: 150%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
@@ -102,8 +102,8 @@
 
 .Unit2 {
     border-radius: 20px;
-    padding-top: 8px;
-    padding-bottom: 12px;
+    padding-top: 4%;
+    padding-bottom: 4%;
     left: 50%;
     width: 25%;
     position: absolute;
@@ -124,23 +124,21 @@
     color: #53b9ae;
 }
 
-.Unit2_Lesson3 {
-    border-radius: 20px;
-    padding-top: 8px;
-    padding-bottom: 12px;
-    left: 26%;
-    width: 20%;
-    position: absolute;
-    top: 135%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background-color: #f8a54aff;
-}
-
 .Lesson3 {
     color: white;
     text-decoration-line: underline;
     text-decoration-color: white;
+    border-radius: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    left: 26%;
+    width: 20%;
+    height: 5%;
+    position: absolute;
+    top: 132%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #f8a54aff;
 }
 
 .Test3 {
@@ -158,23 +156,22 @@
     background-color: #e7581aff;
 }
 
-.Unit2_Lesson4 {
-    border-radius: 20px;
-    padding-top: 8px;
-    padding-bottom: 12px;
-    left: 74%;
-    width: 20%;
-    position: absolute;
-    top: 195%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    background-color: #f8a54aff;
-}
 
 .Lesson4 {
     color: white;
     text-decoration-line: underline;
     text-decoration-color: white;
+    border-radius: 20px;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    left: 74%;
+    width: 20%;
+    height: 5%;
+    position: absolute;
+    top: 192%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #f8a54aff;
 }
 
 .Test4 {
