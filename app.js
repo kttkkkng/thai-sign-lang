@@ -83,6 +83,9 @@ const app = Vue.createApp({
                 });
             }
         },
+        async capture() {
+            capture();
+        }
     }
 });
 
