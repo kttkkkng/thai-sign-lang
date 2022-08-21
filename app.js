@@ -66,6 +66,8 @@ const app = Vue.createApp({
         async toggleCamera() {
             this.showCamera = !this.showCamera;
 
+            let video = document.getElementById("camera");
+
             if (!this.showCamera) {
                 let tracks = video.srcObject.getTracks();
 
