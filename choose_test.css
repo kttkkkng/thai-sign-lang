@@ -1,0 +1,52 @@
+.choices {
+    border: none;
+    color: white;
+    width: 30%;
+    height: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 40px;
+    background-color: #53b9ae;
+    left: 15%;
+    top: 40%;
+    position: absolute;
+}
+
+.camera {
+    border: none;
+    color: white;
+    width: 30%;
+    height: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 40px;
+    background-color: #e7581aff;
+    left: 55%;
+    top: 40%;
+    position: absolute;
+}
+
+.Topic {
+    display: flex;
+    color: #6b5948ff;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    font-size: 60px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
