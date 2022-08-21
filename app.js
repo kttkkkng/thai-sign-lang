@@ -7,39 +7,6 @@ const app = Vue.createApp({
             password: "",
             confirm_password: "",
             showCamera: true,
-            capture: async () => {
-                let video = document.getElementById('camera');
-
-                canvas.width = video.clientWidth;
-                canvas.height = video.clientHeight;
-    
-                let ctx = await canvas.getContext("2d");
-                await ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    
-                document.getElementById("app").appendChild(canvas);
-                
-                let formData = new FormData();
-    
-                await canvas.toBlob(blob => {
-                    formData.append("image", blob);
-
-                    axios({
-                        method: "post",
-                        url: url + "/mediapipe/predict",
-                        data: formData,
-                        headers: { "Content-Type": "multipart/form-data" },
-                    })
-                    .then(function (response) {
-                        //handle success
-                        console.log(response);
-                    })
-                    .catch(function (response) {
-                        //handle error
-                        console.log(response);
-                    });
-                }, "image/jpeg");
-    
-            },
         }
     },
     methods: {
@@ -107,6 +74,8 @@ const app = Vue.createApp({
                 tracks.forEach(track => {
                     track.stop();
                 });
+
+                clearInterval(timer);
             } else {
                 navigator.mediaDevices
                 .getUserMedia(constraints)
@@ -116,10 +85,14 @@ const app = Vue.createApp({
                 .catch(error => {
                     console.log(error);
                 });
+
+                timer = setInterval(() => {
+                    capture();
+                }, 200);
             }
         },
         async capture() {
-            this.capture();
+            capture();
         }
     }
 });
