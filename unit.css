@@ -66,8 +66,9 @@
     text-decoration-line: underline;
     text-decoration-color: white;
     border-radius: 20px;
+    font-size: 25px;
     padding-top: 4%;
-    padding-bottom: 4%;
+    padding-bottom: 6%;
     left: 74%;
     width: 20%;
     height: 5%;
@@ -80,9 +81,10 @@
 
 .Test2 {
     border: none;
+    font-size: 25px;
     border-radius: 20px;
     padding-top: 4%;
-    padding-bottom: 4%;
+    padding-bottom: 6%;
     left: 50%;
     height: 5%;
     width: 20%;
@@ -133,9 +135,10 @@
     color: white;
     text-decoration-line: underline;
     text-decoration-color: white;
+    font-size: 25px;
     border-radius: 20px;
     padding-top: 4%;
-    padding-bottom: 4%;
+    padding-bottom: 6%;
     left: 26%;
     width: 20%;
     height: 5%;
@@ -148,9 +151,10 @@
 
 .Test3 {
     border: none;
+    font-size: 25px;
     border-radius: 20px;
     padding-top: 4%;
-    padding-bottom: 4%;
+    padding-bottom: 6%;
     left: 50%;
     height: 5%;
     width: 20%;
@@ -168,9 +172,10 @@
     color: white;
     text-decoration-line: underline;
     text-decoration-color: white;
+    font-size: 25px;
     border-radius: 20px;
     padding-top: 4%;
-    padding-bottom: 4%;
+    padding-bottom: 6%;
     left: 74%;
     width: 20%;
     height: 5%;
@@ -183,9 +188,10 @@
 
 .Test4 {
     border: none;
+    font-size: 25px;
     border-radius: 20px;
     padding-top: 4%;
-    padding-bottom: 4%;
+    padding-bottom: 6%;
     left: 50%;
     height: 5%;
     width: 20%;
