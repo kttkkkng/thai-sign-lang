@@ -11,6 +11,7 @@
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue-cookies@1.8.1/vue-cookies.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="app">
@@ -50,23 +51,37 @@
     <script src="app.js"></script>
     <script async>
         const capture = async () => {
+            let video = document.getElementById('camera');
+
             canvas.width = video.clientWidth;
             canvas.height = video.clientHeight;
 
-            let ctx = canvas.getContext("2d");
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            let ctx = await canvas.getContext("2d");
+            await ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
             document.getElementById("app").appendChild(canvas);
+            
+            let formData = new FormData();
 
-            let image = canvas.toDataURL("image/jpeg");
+            await canvas.toBlob(blob => {
+                console.log(blob);
+                formData.append("image", blob);
+            }, "image/jpeg");
 
-            $.ajax({
-                type: "POST",
-                url: url + "mediapipe/predict",
-                data: {
-                    imgBase64: image,
-                },
-            }).done((response) => {
+            console.log(formData);
+
+            axios({
+                method: "post",
+                url: url + "/mediapipe/predict",
+                data: formData,
+                headers: { "Content-Type": "multipart/form-data" },
+            })
+            .then(function (response) {
+                //handle success
+                console.log(response);
+            })
+            .catch(function (response) {
+                //handle error
                 console.log(response);
             });
         }
@@ -84,7 +99,7 @@
             }, 200);
         };
 
-        create();
+        //create();
     </script>
 </body>
 </html>
