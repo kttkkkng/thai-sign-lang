@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kodchasan">
+    <link rel="stylesheet" href="Top_Page_Main.css">
+    <link rel="stylesheet" href="unit.css">
+    <link rel="stylesheet" href="camera.css">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-cookies@1.8.1/vue-cookies.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="Top" >
+            <h1 class="Name" >ชื่อเว็บ</h1>
+            <div>
+                <button class="Unit">บทที่ 1</button>
+                <button class="Goal">เป้าหมาย</button>
+                <button class="Library">คลัง</button>
+            </div>
+            <div class="Profile">
+                <h3 class="Profile_Name">ชื่อ</h3>
+                <img class="Icon2" src="Profile.PNG" alt="icon" width="50" height="50">
+            </div>
+        </div>
+        <div class="Main">
+            <h1>word</h1>
+
+            <video id="camera" autoplay="true" class="camera"></video>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        const constraints = (window.constraints = {
+				audio: false,
+				video: true
+			});
+
+        navigator.mediaDevices
+            .getUserMedia(constraints)
+            .then(stream => {
+                document.querySelector("#camera").srcObject = stream;
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+</body>
+</html>
