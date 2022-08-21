@@ -115,7 +115,7 @@ body * {
 .Choice1 {
     border: none;
     color: black;
-    width: 35%;
+    width: 30%;
     left: 30%;
     top: 62%;
     position: absolute;
@@ -124,15 +124,15 @@ body * {
     font-size: 25px;
     border-radius: 10px;
     background-color:#f5e6d8ff;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     transform: translate(-50%, -50%);
 }
 
 .Choice3 {
     border: none;
     color: black;
-    width: 35%;
+    width: 30%;
     left: 30%;
     top: 84%;
     position: absolute;
@@ -141,15 +141,15 @@ body * {
     font-size: 25px;
     border-radius: 10px;
     background-color:#f5e6d8ff;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     transform: translate(-50%, -50%);
 }
 
 .Choice2 {
     border: none;
     color: black;
-    width: 35%;
+    width: 30%;
     left: 70%;
     top: 62%;
     position: absolute;
@@ -158,15 +158,15 @@ body * {
     font-size: 25px;
     border-radius: 10px;
     background-color:#f5e6d8ff;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     transform: translate(-50%, -50%);
 }
 
 .Choice4 {
     border: none;
     color: black;
-    width: 35%;
+    width: 30%;
     left: 70%;
     top: 84%;
     position: absolute;
@@ -175,8 +175,8 @@ body * {
     font-size: 25px;
     border-radius: 10px;
     background-color:#f5e6d8ff;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     transform: translate(-50%, -50%);
 }
 
