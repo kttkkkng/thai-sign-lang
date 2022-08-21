@@ -60,22 +60,15 @@
 
             let image = canvas.toDataURL("image/jpeg");
 
-            try {
-                response = await axios.post(url + "/mediapipe/predict", image, {
-                    "Content-Type": "image/jpeg",
-                });
-            } catch (err) {
-                if (err.response) {
-                    if (err.response.status == "400") {
-                        alert(err.response.data.message);
-                    } else {
-                        console.log(err.response.status);
-                    }
-                    return;
-                } else {
-                    return alert("cannot connect to backend");
-                }
-            }
+            $.ajax({
+                type: "POST",
+                url: url + "mediapipe/predict",
+                data: {
+                    imgBase64: image,
+                },
+            }).done((response) => {
+                console.log(response);
+            });
         }
 
         const create = async () => {
