@@ -6,6 +6,7 @@ const app = Vue.createApp({
             username: "",
             password: "",
             confirm_password: "",
+            showCamera: true,
         }
     },
     methods: {
@@ -61,7 +62,27 @@ const app = Vue.createApp({
                 }
                 alert("success");
             }
-        }
+        },
+        async toggleCamera() {
+            this.showCamera = !this.showCamera;
+
+            if (!this.showCamera) {
+                let tracks = video.srcObject.getTracks();
+
+                tracks.forEach(track => {
+                    track.stop();
+                });
+            } else {
+                navigator.mediaDevices
+                .getUserMedia(constraints)
+                .then(stream => {
+                    video.srcObject = stream;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+            }
+        },
     }
 });
 

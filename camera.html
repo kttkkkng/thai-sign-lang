@@ -16,28 +16,26 @@
     <div id="app">
         <div class="Top" >
             <h1 class="Name" >ชื่อเว็บ</h1>
-            <div>
-                <button class="Unit">บทที่ 1</button>
-                <button class="Goal">เป้าหมาย</button>
-                <button class="Library">คลัง</button>
-            </div>
             <div class="Profile">
                 <h3 class="Profile_Name">ชื่อ</h3>
                 <img class="Icon2" src="Profile.PNG" alt="icon" width="50" height="50">
             </div>
         </div>
         <div class="Main">
-            <h1>word</h1>
+            <h1 @click="toggleCamera">word</h1>
 
             <video id="camera" autoplay="true" class="camera"></video>
         </div>
+        <button @click="capture">ถ่าย</button>
     </div>
 
-    <script src="app.js"></script>
     <script>
+        let canvas = document.createElement('canvas');
+        let video = document.getElementById('camera');
+
         const constraints = (window.constraints = {
 				audio: false,
-				video: true
+				video: true,
 			});
 
         navigator.mediaDevices
@@ -48,6 +46,52 @@
             .catch(error => {
                 console.log(error);
             });
+    </script>
+    <script src="app.js"></script>
+    <script async>
+        const capture = async () => {
+            canvas.width = video.clientWidth;
+            canvas.height = video.clientHeight;
+
+            let ctx = canvas.getContext("2d");
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            document.getElementById("app").appendChild(canvas);
+
+            let image = canvas.toDataURL("image/jpeg");
+
+            try {
+                response = await axios.post(url + "/mediapipe/predict", image, {
+                    "Content-Type": "image/jpeg",
+                });
+            } catch (err) {
+                if (err.response) {
+                    if (err.response.status == "400") {
+                        alert(err.response.data.message);
+                    } else {
+                        console.log(err.response.status);
+                    }
+                    return;
+                } else {
+                    return alert("cannot connect to backend");
+                }
+            }
+        }
+
+        const create = async () => {
+            let response;
+            try {
+                response = await axios.get(url);
+            } catch (err) {
+                throw "backend not exist";
+            }
+
+            const timer = setInterval(() => {
+                capture();
+            }, 200);
+        };
+
+        create();
     </script>
 </body>
 </html>
