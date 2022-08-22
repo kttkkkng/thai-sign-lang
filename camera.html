@@ -23,9 +23,11 @@
             </div>
         </div>
         <div class="Main">
-            <h1 @click="toggleCamera">word</h1>
+            <h1 id="word" @click="toggleCamera">word</h1>
 
             <video id="camera" autoplay="true" class="camera"></video>
+
+            <h1 id="predict"></h1>
 
             <button @click="capture">ถ่าย</button>
         </div>
@@ -34,6 +36,8 @@
     <script>
         let canvas = document.createElement('canvas');
         let video = document.getElementById('camera');
+        let word = document.getElementById('word');
+        let predict = document.getElementById('word');
 
         const constraints = (window.constraints = {
 				audio: false,
@@ -52,6 +56,9 @@
     <script src="app.js"></script>
     <script async>
         const capture = async () => {
+            if (current == question.length) {
+                window.location = "/unit.html";
+            }
             let video = document.getElementById('camera');
 
             canvas.width = video.clientWidth;
@@ -64,16 +71,33 @@
 
             await canvas.toBlob(blob => {
                 formData.append("image", blob);
+                formData.append("word_id", question[current].id);
 
                 axios({
                     method: "post",
                     url: url + "/mediapipe/predict",
                     data: formData,
-                    headers: { "Content-Type": "multipart/form-data" },
+                    headers: { "Content-Type": "multipart/form-data", "Authorization": `Bearer ${$cookies.get('token')}` },
                 })
                 .then(function (response) {
                     //handle success
-                    console.log(response);
+                    if (response.data.word) {
+                        predict.textContent = response.data.word;
+                    }
+                    if (response.data.is_correct) {
+                        clearInterval(timer);
+                        if (current + 1 <= question.length) {
+                            current++;
+                            predict.style.color = '#53b9aeff';
+                            await new Promise((r) => setTimeout(r, 1000));
+                            predict.style.color = 'black';
+                            predict.textContent = "";
+                            word.textContent = question[current].word;
+                        }
+                        timer = setInterval(() => {
+                            capture();
+                        }, 200);
+                    }
                 })
                 .catch(function (response) {
                     //handle error
@@ -87,10 +111,18 @@
         const create = async () => {
             let response;
             try {
-                response = await axios.get(url);
+                response = await axios.post(url + "mediapipe/question", {
+                    headers: {
+                        "Authorization": `Bearer ${$cookies.get('token')}`,
+                    },
+                });
             } catch (err) {
                 throw "backend not exist";
             }
+
+            question = response.data.question;
+            word.textContent = question[0].word;
+            current = 0;
 
             timer = setInterval(() => {
                 capture();
