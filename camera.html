@@ -36,8 +36,6 @@
     <script>
         let canvas = document.createElement('canvas');
         let video = document.getElementById('camera');
-        let word = document.getElementById('word');
-        let predict = document.getElementById('word');
 
         const constraints = (window.constraints = {
 				audio: false,
@@ -55,6 +53,23 @@
     </script>
     <script src="app.js"></script>
     <script async>
+        let timer;
+
+        const changeWord = async () => {
+            clearInterval(timer);
+            if (current + 1 <= question.length) {
+                current++;
+                document.getElementById("predict").style.color = '#53b9aeff';
+                await new Promise((r) => setTimeout(r, 1000));
+                document.getElementById("predict").style.color = 'black';
+                document.getElementById("predict").textContent = "";
+                document.getElementById("word").textContent = question[current].word;
+            }
+            timer = setInterval(() => {
+                capture();
+            }, 200);
+        };
+
         const capture = async () => {
             if (current == question.length) {
                 window.location = "/unit.html";
@@ -82,21 +97,10 @@
                 .then(function (response) {
                     //handle success
                     if (response.data.word) {
-                        predict.textContent = response.data.word;
+                        document.getElementById("predict").textContent = response.data.word;
                     }
                     if (response.data.is_correct) {
-                        clearInterval(timer);
-                        if (current + 1 <= question.length) {
-                            current++;
-                            predict.style.color = '#53b9aeff';
-                            await new Promise((r) => setTimeout(r, 1000));
-                            predict.style.color = 'black';
-                            predict.textContent = "";
-                            word.textContent = question[current].word;
-                        }
-                        timer = setInterval(() => {
-                            capture();
-                        }, 200);
+                        changeWord();
                     }
                 })
                 .catch(function (response) {
@@ -106,22 +110,21 @@
             }, "image/jpeg");
         };
 
-        let timer;
-
         const create = async () => {
             let response;
             try {
-                response = await axios.post(url + "mediapipe/question", {
+                response = await axios.post(url + "/mediapipe/question", { unit: getUnit() }, {
                     headers: {
                         "Authorization": `Bearer ${$cookies.get('token')}`,
                     },
                 });
             } catch (err) {
+                console.log(err);
                 throw "backend not exist";
             }
 
             question = response.data.question;
-            word.textContent = question[0].word;
+            document.getElementById("word").textContent = question[0].word;
             current = 0;
 
             timer = setInterval(() => {
