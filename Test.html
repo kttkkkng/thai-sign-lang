@@ -18,17 +18,20 @@
         </div>
         <div class="Panel_Test">
             <img class="Test_Picture" src="Picture/Sample1.jpg" alt="icon" width="200" height="300">
-            <button class="Choice1">คำตอบ 1</button>
-            <button class="Choice2">คำตอบ 2</button>
-            <button class="Choice3">คำตอบ 3</button>
-            <button class="Choice4">คำตอบ 4</button>
+            <button class="Choice1" @click="selectAnswer(0)">คำตอบ 1</button>
+            <button class="Choice2" @click="selectAnswer(1)">คำตอบ 2</button>
+            <button class="Choice3" @click="selectAnswer(2)">คำตอบ 3</button>
+            <button class="Choice4" @click="selectAnswer(3)">คำตอบ 4</button>
             <button id="check" class="Next" @click="nextTestQuestion">ตรวจคำตอบ</button>
-            <img class="Back" src="Picture/CrossB.png" alt="Back" width="50" height="40">
+            <img class="Back" src="Picture/CrossB.png" @click="goToUnit" alt="Back" width="50" height="40">
         </div>
     </div>
 
     <script src="app.js"></script>
     <script>
+        let pic;
+        let choices;
+
         const get_question = async () => {
             if (!$cookies.isKey('token')) {
                 window.location = "/login.html";
@@ -37,7 +40,7 @@
             let response;
 
             try {
-                response = await axios.post(url + "/test/question", { unit: unit }, {
+                response = await axios.post(url + "/test/question", { unit: getUnit() }, {
                     headers: {
                         "Authorization": `Bearer ${$cookies.get('token')}`,
                     },
@@ -48,21 +51,16 @@
                 alert("failed to connect to backend");
             }
 
-            console.log(response.data);
-            console.log(question);
-
             question = response.data.question;
 
-            console.log(question);
-
-            let pic = document.getElementsByClassName("Test_Picture")[0];
+            pic = document.getElementsByClassName("Test_Picture")[0];
             
             let choice1 = document.getElementsByClassName("Choice1")[0];
             let choice2 = document.getElementsByClassName("Choice2")[0];
             let choice3 = document.getElementsByClassName("Choice3")[0];
             let choice4 = document.getElementsByClassName("Choice4")[0];
 
-            let choices = [choice1, choice2, choice3, choice4];
+            choices = [choice1, choice2, choice3, choice4];
 
             pic.src = `Picture/${question[0].id}.jpg`;
 

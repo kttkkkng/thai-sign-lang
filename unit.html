@@ -31,38 +31,61 @@
                     <h1 class="Unit1_Name">บทที่ 1</h2>
                 </div>
                 <div class="Unit1_Lesson1">
-                    <button class="Lesson1">บทเรียนที่ 1</button>
+                    <button class="Lesson1" @click="goToLesson(1)">บทเรียนที่ 1</button>
                 </div>
                 <div>
-                    <button class="Test1" v-bind:des=1 @click="goToTest(des)">การทดสอบที่ 1</button>
+                    <button class="Test1" @click="goToTest(1)">การทดสอบที่ 1</button>
                 </div>
-                <div class="Unit1_Lesson2">
-                    <button class="Lesson2">บทเรียนที่ 2</button>
-                </div>
-                <div>
-                    <button class="Test2">การทดสอบที่ 2</button>
+                <div v-if="unit > 1">
+                    <div class="Unit1_Lesson2">
+                        <button class="Lesson2" @click="goToLesson(2)">บทเรียนที่ 2</button>
+                    </div>
+                    <div>
+                        <button class="Test2" @click="goToTest(2)">การทดสอบที่ 2</button>
+                    </div>
                 </div>
             </div> 
-            <div class="Unit_2">
+            <div class="Unit_2" v-if="unit > 2">
                 <div class="Unit2">
                     <h1 class="Unit2_Name">บทที่ 2</h2>
                 </div>
                 <div class="Unit2_Lesson3">
-                    <button class="Lesson3">บทเรียนที่ 3</button>
+                    <button class="Lesson3" @click="goToLesson(3)">บทเรียนที่ 3</button>
                 </div>
                 <div>
-                    <button class="Test3">การทดสอบที่ 3</button>
+                    <button class="Test3" @click="goToTest(3)">การทดสอบที่ 3</button>
                 </div>
-                <div class="Unit2_Lesson4">
-                    <button class="Lesson4">บทเรียนที่ 4</button>
-                </div>
-                <div>
-                    <button class="Test4">การทดสอบที่ 4</button>
+                <div v-if="unit > 3">
+                    <div class="Unit2_Lesson4">
+                        <button class="Lesson4" @click="goToLesson(4)">บทเรียนที่ 4</button>
+                    </div>
+                    <div>
+                        <button class="Test4" @click="goToTest(4)">การทดสอบที่ 4</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="app.js"></script>
+    <script>
+        const get_unit = async () => {
+            let response;
+    
+            try {
+                response = await axios.get(url + "/unit/track", {
+                    headers: {
+                        "Authorization": `Bearer ${$cookies.get('token')}`,
+                    },
+                });
+            } catch (err) {
+    
+            }
+
+            setUnit(response.data.unit);
+        };
+
+        get_unit();
+    </script>
 </body>
 </html>

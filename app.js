@@ -1,18 +1,33 @@
 const url = "http://localhost:3000";
 
 let question = [];
-let current = 1;
+let words = [];
+let current = 0;
 let done = false;
-let unit = 1;
 let answer;
+let lock = false;
+
+let setUnit;
+let getUnit;
 
 const app = Vue.createApp({
+    created () {
+        setUnit = (unit) => {
+            this.unit = unit;
+            $cookies.set("unit", unit);
+        };
+        getUnit = () => {
+            return $cookies.get("unit");
+        };
+    },
     data () {
         return {
             username: "",
             password: "",
             confirm_password: "",
             showCamera: true,
+            current: 0,
+            unit: 1,
         }
     },
     methods: {
@@ -26,8 +41,13 @@ const app = Vue.createApp({
             window.location = "/unit.html";
         },
         goToTest (des) {
-            unit = des;
-            window.location = "/Test.html"
+            setUnit(des);
+            window.location = "/Test.html";
+        },
+        goToLesson (des) {
+            setUnit(des);
+            window.location = "/Lesson.html";
+            
         },
         async login () {
             if (this.username == "" || this.password == "") {
@@ -109,31 +129,103 @@ const app = Vue.createApp({
             capture();
         },
         async nextTestQuestion () {
-            if (!done) return;
-            if (current + 1 < question.length) {
-                done = false;
+            if (document.getElementById("check").textContent == "เสร็จสิ้น") {
+                window.location = "/unit.html";
+            }
 
-                let response;
+            if (!done) return;
+            
+            let response;
+
+            if (current + 1 <= question.length) {
+                done = false;
+                lock = true;
 
                 try {
-                    response = axios.post(url + "/test/answer", { word_id: question[current].id, answer: answer });
+                    response = await axios.post(url + "/test/answer", { word_id: question[current].id, ans: choices[answer].textContent }, {
+                        headers: {
+                            "Authorization": `Bearer ${$cookies.get('token')}`,
+                        },
+                    });
                 } catch (err) {
+                    console.log(err);
+                }
 
+                if (response.data.is_correct) {
+                    choices[answer].style.backgroundColor = '#53b9aeff';
+                } else {
+                    choices[answer].style.backgroundColor = '#e7581aff';
+                    choices.forEach((choice, index) => {
+                        if (choice.textContent == response.data.correct) {
+                            choices[index].style.backgroundColor = '#53b9aeff';
+                        }
+                    });
+                    await new Promise((r) => setTimeout(r, 2000));
                 }
 
                 current++;
 
-                pic.src = `${question[current].id}.jpg`;
+                await new Promise((r) => setTimeout(r, 1000));
+                
+                if (current == question.length) {
+                    document.getElementById("check").textContent = "เสร็จสิ้น";
+                } else {
+                    choices.forEach(choice => {
+                        choice.style.backgroundColor = '#f5e6d8ff';
+                    });
 
-                choices.forEach((choice, index) => {
-                    choice.textContent = question[current].choice[index];
+                    pic.src = `Picture/${question[current].id}.jpg`;
+    
+                    choices.forEach((choice, index) => {
+                        choice.textContent = question[current].choice[index];
+                    });
+
+                    lock = false;
+                }
+            }
+        },
+        selectAnswer (index) {
+            if (!lock) {
+                choices.forEach(choice => {
+                    choice.style.backgroundColor = '#f5e6d8ff';
                 });
-            } else if (current + 1 == question.length) {
-                current++;
+                choices[index].style.backgroundColor = '#f8a54aff';
+                done = true;
+                answer = index;
+            }
+        },
+        async nextWord () {
+            if (this.current + 1 == words.length) {
+                try {
+                    await axios.patch(url + '/unit/track', { now_unit: getUnit() }, {
+                        headers: {
+                            "Authorization": `Bearer ${$cookies.get('token')}`,
+                        },
+                    });
+                } catch (err) {
+                    alert("cannot connect to backend");
+                }
 
-                document.getElementById("check").textContent = "เสร็จสิ้น";
-            } else if (document.getElementById("check").textContent == "เสร็จสิ้น") {
                 window.location = "/unit.html";
+            } else if (this.current + 1 < words.length) {
+                this.current++;
+
+                pic.src = `Picture/${words[this.current].id}.jpg`
+
+                word.textContent = words[this.current].word;
+
+                if (this.current + 1 == words.length) {
+                    document.getElementById("nextButton").textContent = "เสร็จสิ้น";
+                }
+            }
+        },
+        async prevWord () {
+            if (this.current - 1 >= 0) {
+                this.current--;
+
+                pic.src = `Picture/${words[this.current].id}.jpg`
+                document.getElementById("nextButton").textContent = "ถัดไป";
+                word.textContent = words[this.current].word;
             }
         },
     }
