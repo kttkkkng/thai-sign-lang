@@ -23,13 +23,15 @@
             </div>
         </div>
         <div class="Main">
-            <h1 id="word" @click="toggleCamera">word</h1>
+            <h1 class="word" id="word" @click="toggleCamera">word</h1>
 
             <video id="camera" autoplay="true" class="camera"></video>
 
             <h1 id="predict"></h1>
 
-            <button @click="capture">ถ่าย</button>
+            <button class="Cap" @click="capture">ถ่าย</button>
+
+            <img class="Back" src="Picture/CrossB.png" @click="goToUnit" alt="Back" width="50" height="40">
         </div>
     </div>
 
