@@ -28,20 +28,20 @@
         <div class="Main">
             <div class="A_Unit">
                 <button class="center one head">บทที่ 1</h2>
-                <button class="left two content" @click="goToLesson(1)">บทเรียนที่ 1</button>
-                <button class="center three content" @click="goToTest(1)">การทดสอบที่ 1</button>
+                <button class="left two content" style="background-color: #f8a54aff;" @click="goToLesson(1)">บทเรียนที่ 1</button>
+                <button class="center three content" style="background-color: #e7581aff;" @click="goToTest(1)">การทดสอบที่ 1</button>
                 <div v-if="unit > 1">
-                    <button class="right four content" @click="goToLesson(2)">บทเรียนที่ 2</button>
-                    <button class="center five content" @click="goToTest(2)">การทดสอบที่ 2</button>
+                    <button class="right four content" style="background-color: #f8a54aff;" @click="goToLesson(2)">บทเรียนที่ 2</button>
+                    <button class="center five content" style="background-color: #e7581aff;" @click="goToTest(2)">การทดสอบที่ 2</button>
                 </div>
             </div> 
             <div class="A_Unit" v-if="unit > 2">
                 <button class="center one head">บทที่ 2</h2>
-                <button class="left two content" @click="goToLesson(3)">บทเรียนที่ 3</button>
-                <button class="center three content" @click="goToTest(3)">การทดสอบที่ 3</button>
+                <button class="left two content" style="background-color: #f8a54aff;" @click="goToLesson(3)">บทเรียนที่ 3</button>
+                <button class="center three content" style="background-color: #e7581aff;" @click="goToTest(3)">การทดสอบที่ 3</button>
                 <div v-if="unit > 3">
-                    <button class="right four content" @click="goToLesson(4)">บทเรียนที่ 4</button>
-                    <button class="center five content" @click="goToTest(4)">การทดสอบที่ 4</button>
+                    <button class="right four content" style="background-color: #f8a54aff;" @click="goToLesson(4)">บทเรียนที่ 4</button>
+                    <button class="center five content" style="background-color: #e7581aff;" @click="goToTest(4)">การทดสอบที่ 4</button>
                 </div>
             </div>
         </div>
