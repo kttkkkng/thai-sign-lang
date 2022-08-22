@@ -44,8 +44,6 @@
             this.current = 0;
             
             words = response.data.word;
-
-            console.log(words);
             
             pic.src = `Picture/${words[0].id}.jpg`;
             word.textContent = words[0].word;
