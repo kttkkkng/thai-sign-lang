@@ -8,10 +8,10 @@ body * {
 }
 
 video {
-    width: 50%;
+    height: 75%;
     position: absolute;
     left: 50%;
-    top: 60%;
+    top: 55%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
@@ -19,9 +19,18 @@ video {
 .word {
     position: absolute;
     left: 50%;
-    top: 10%;
+    top: 5%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+.predict {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: greenyellow;
 }
 
 .Cap {
@@ -44,10 +53,10 @@ video {
     padding-top: 30px;
     padding-bottom: 30px;
     left: 50%;
-    height: 95%;
+    height: 70%;
     width: 95%;
     position: absolute;
-    top: 72%;
+    top: 60%;
     transform: translate(-50%, -50%);
     text-align: center;
     background-color: white;
