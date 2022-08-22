@@ -36,8 +36,6 @@
     <script>
         let canvas = document.createElement('canvas');
         let video = document.getElementById('camera');
-        let word = document.getElementById('word');
-        let predict = document.getElementById('word');
 
         const constraints = (window.constraints = {
 				audio: false,
@@ -61,11 +59,11 @@
             clearInterval(timer);
             if (current + 1 <= question.length) {
                 current++;
-                predict.style.color = '#53b9aeff';
+                document.getElementById("predict").style.color = '#53b9aeff';
                 await new Promise((r) => setTimeout(r, 1000));
-                predict.style.color = 'black';
-                predict.textContent = "";
-                word.textContent = question[current].word;
+                document.getElementById("predict").style.color = 'black';
+                document.getElementById("predict").textContent = "";
+                document.getElementById("word").textContent = question[current].word;
             }
             timer = setInterval(() => {
                 capture();
@@ -99,7 +97,7 @@
                 .then(function (response) {
                     //handle success
                     if (response.data.word) {
-                        predict.textContent = response.data.word;
+                        document.getElementById("predict").textContent = response.data.word;
                     }
                     if (response.data.is_correct) {
                         changeWord();
@@ -126,7 +124,7 @@
             }
 
             question = response.data.question;
-            word.textContent = question[0].word;
+            document.getElementById("word").textContent = question[0].word;
             current = 0;
 
             timer = setInterval(() => {
