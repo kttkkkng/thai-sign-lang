@@ -1,0 +1,66 @@
+.Main button {
+    border-radius: 20px;
+    font-size: 25px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.content {
+    color: white;
+    background-color: #e7581aff;
+    border: none;
+    text-decoration-line: underline;
+    text-decoration-color: white;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 15%;
+}
+
+.head {
+    background-color: white;
+    color: #797e5c;
+    text-decoration-line: underline;
+    text-decoration-color: #797e5c;
+    font-size: 35px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 20%;
+}
+
+.left {
+    left: 25%;
+}
+
+.center {
+    left: 50%;
+}
+
+.right {
+    left: 75%;
+}
+
+.one {
+    top: 10%;
+}
+
+.two {
+    top: 30%;
+}
+
+.three {
+    top: 50%;
+}
+
+.four {
+    top: 70%;
+}
+
+.five {
+    top: 90%;
+}
+
+.A_Unit {
+    position: relative;
+    height: 140%;
+}

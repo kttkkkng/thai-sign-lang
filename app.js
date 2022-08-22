@@ -40,14 +40,19 @@ const app = Vue.createApp({
         goToUnit () {
             window.location = "/unit.html";
         },
+        goToChoiceTest () {
+            window.location = "/Test.html";
+        },
         goToTest (des) {
             setUnit(des);
-            window.location = "/Test.html";
+            window.location = "/choose_test.html";
         },
         goToLesson (des) {
             setUnit(des);
             window.location = "/Lesson.html";
-            
+        },
+        goToCameraTest () {
+            window.location = "/camera.html";
         },
         async login () {
             if (this.username == "" || this.password == "") {
