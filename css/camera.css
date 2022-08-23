@@ -24,6 +24,14 @@ video {
     transform: translate(-50%, -50%);
 }
 
+.Predict {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
 .Cap {
     position: absolute;
     left: 90%;

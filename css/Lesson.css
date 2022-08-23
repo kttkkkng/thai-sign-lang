@@ -131,3 +131,23 @@ body * {
     border-radius: 10px;
     background-color:#f8a54aff;
 }
+
+.Return {
+    border: none;
+    color: white;
+    width: 20%;
+    left: 1%;
+    top: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 10px;
+    background-color:#f8a54aff;
+}
