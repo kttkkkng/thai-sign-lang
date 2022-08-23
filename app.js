@@ -54,6 +54,15 @@ const app = Vue.createApp({
         goToCameraTest () {
             window.location = "/camera.html";
         },
+        goToLibrary () {
+            window.location = "/Library.html";
+        },
+        goToLibrary_Unit1 (){
+            window.location = "/Library_Unit1.html";
+        },
+        goToLibrary_Unit2 (){
+            window.location = "/Library_Unit2.html";
+        },
         async login () {
             if (this.username == "" || this.password == "") {
                 alert("please enter username and password");
@@ -100,6 +109,7 @@ const app = Vue.createApp({
                     }
                 }
                 alert("success");
+                window.location = "/index.html";
             }
         },
         async toggleCamera() {
