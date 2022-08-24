@@ -24,7 +24,7 @@ const app = Vue.createApp({
 
         if (name) {
             if ($cookies.isKey("name")) {
-                name.textContent = $cookies.get("name");
+                document.getElementById("name").textContent = $cookies.get("name");
             }
         }
     },
