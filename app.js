@@ -19,6 +19,14 @@ const app = Vue.createApp({
         getUnit = () => {
             return $cookies.get("unit");
         };
+
+        const name = document.getElementById("name");
+
+        if (name) {
+            if ($cookies.isKey("name")) {
+                name.textContent = $cookies.get("name");
+            }
+        }
     },
     data () {
         return {
@@ -82,7 +90,8 @@ const app = Vue.createApp({
                         return alert("cannot connect to backend");
                     }
                 }
-                $cookies.set("token", response.data.token,  "7d");
+                $cookies.set("token", response.data.token, "7d");
+                $cookies.set("name", response.data.username, "7d");
 
                 window.location = "/unit.html";
             }
