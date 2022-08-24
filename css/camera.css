@@ -38,6 +38,7 @@ video {
     left: 90%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    opacity: 0.0;
 }
 
 .Back {
