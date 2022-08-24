@@ -61,7 +61,8 @@
             } catch (err) {
                 //TODO 403
                 console.log(err);
-                alert("failed to connect to backend");
+                alert("Please study previous section to unlock this section!");
+                window.location = "/unit.html";
             }
 
             question = response.data.question;

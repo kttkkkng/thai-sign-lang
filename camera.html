@@ -122,7 +122,8 @@
                 });
             } catch (err) {
                 console.log(err);
-                throw "backend not exist";
+                alert("Please study previous section to unlock this section!");
+                window.location = "/unit.html";
             }
 
             question = response.data.question;
