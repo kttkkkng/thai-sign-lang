@@ -137,7 +137,7 @@ const app = Vue.createApp({
 
                 timer = setInterval(() => {
                     capture();
-                }, 200);
+                }, 700);
             }
         },
         async capture () {
