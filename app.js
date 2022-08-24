@@ -19,7 +19,8 @@ const app = Vue.createApp({
         getUnit = () => {
             return $cookies.get("unit");
         };
-
+    },
+    mounted () {
         const name = document.getElementById("name");
 
         if (name) {
