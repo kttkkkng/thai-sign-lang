@@ -60,12 +60,17 @@
         const changeWord = async () => {
             clearInterval(timer);
             if (current + 1 <= question.length) {
-                current++;
-                document.getElementById("predict").style.color = '#53b9aeff';
-                await new Promise((r) => setTimeout(r, 1000));
-                document.getElementById("predict").style.color = 'whitesmoke';
-                document.getElementById("predict").textContent = "";
-                document.getElementById("word").textContent = question[current].word;
+                try{
+                    current++;
+                    document.getElementById("predict").style.color = '#53b9aeff';
+                    await new Promise((r) => setTimeout(r, 1000));
+                    document.getElementById("predict").style.color = 'whitesmoke';
+                    document.getElementById("predict").textContent = "";
+                    document.getElementById("word").textContent = question[current].word;
+                }catch(err){
+                    console.log(err);
+                    window.location = "/unit.html";
+                }
             }
             timer = setInterval(() => {
                 capture();
