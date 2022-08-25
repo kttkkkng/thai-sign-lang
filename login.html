@@ -14,14 +14,14 @@
 <body>
     <div id="app">
         <div class="Top">
-            <h1 class="Name">อวัจนา</h1>
+            <h1 class="Name"  @click="goToIndex">อวัจนา</h1>
             <img class="Icon1" src="Profile.PNG" alt="icon" width="50" height="50">
         </div>
         <div class="Panel_Login">
             <h2 class="Login_Header">เข้าสู่ระบบ</h1>
-            <input class="User" type="text" placeholder="ชื่อผู้ใช้" v-model="username">
+            <input class="User" type="text" placeholder="ชื่อผู้ใช้" v-model="username" v-on:keyup.enter="login">
             <br>
-            <input class="User" type="password" placeholder="รหัสผ่าน" v-model="password">
+            <input class="User" type="password" placeholder="รหัสผ่าน" v-model="password" v-on:keyup.enter="login">
             <br>
             <button class="Confirm" @click="login">ยืนยัน</button>
         </div>

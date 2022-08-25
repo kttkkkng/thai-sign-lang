@@ -1,4 +1,4 @@
-const url = "http://ec2-54-151-168-27.ap-southeast-1.compute.amazonaws.com:3000";
+const url = "http://ec2-175-41-163-195.ap-southeast-1.compute.amazonaws.com:3000";
 
 let question = [];
 let words = [];
@@ -40,6 +40,9 @@ const app = Vue.createApp({
         }
     },
     methods: {
+        goToIndex () {
+            window.location = "/index.html";
+        },
         goToLogin () {
             window.location = "/login.html";
         },
@@ -119,7 +122,7 @@ const app = Vue.createApp({
                     }
                 }
                 alert("success");
-                window.location = "/index.html";
+                window.location.href = "/login.html";
             }
         },
         async toggleCamera() {

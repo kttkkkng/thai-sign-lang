@@ -14,9 +14,9 @@
 <body>
     <div id="app">
         <div class="Top" >
-            <h1 class="Name" >อวัจนา</h1>
+            <h1 class="Name" @click="goToIndex">อวัจนา</h1>
             <div>
-                <button class="Unit">บทที่ 1</button>
+                <button class="Unit">บทเรียน</button>
                 <button class="Library">คลัง</button>
             </div>
             <div class="Profile">
@@ -27,7 +27,7 @@
         <div style="position: relative; width: 100%; height: 80%;">
             <h1 class="Topic">เลือกวิธีการทดสอบ</h1>
             <button class="choices" @click="goToChoiceTest">แบบตัวเลือก</button>
-            <button class="camera" @click="goToCameraTest">แบบจับท่าทาง</button>
+            <button class="camera" style="background-color: darkgrey; color: white;">แบบจับท่าทาง</button>
         </div>
         </div>
     </div>
