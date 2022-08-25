@@ -63,7 +63,7 @@
                 current++;
                 document.getElementById("predict").style.color = '#53b9aeff';
                 await new Promise((r) => setTimeout(r, 1000));
-                document.getElementById("predict").style.color = 'black';
+                document.getElementById("predict").style.color = 'whitesmoke;';
                 document.getElementById("predict").textContent = "";
                 document.getElementById("word").textContent = question[current].word;
             }
@@ -108,6 +108,12 @@
                 .catch(function (response) {
                     //handle error
                     console.log(response);
+                    if (err.response.status == "400") {
+                        alert(err.response.data.message);
+                    } else {
+                        console.log(err.response.status);
+                    }
+                    return;
                 });
             }, "image/jpeg");
         };
