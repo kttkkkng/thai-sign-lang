@@ -56,7 +56,7 @@ body * {
 
 }
 
-.Goal {
+.Library {
     border: none;
     color: white;
     position: absolute;
@@ -73,7 +73,7 @@ body * {
     background-color:#797e5cff;
 }
 
-.Library {
+.L {
     border: none;
     color: white;
     position: absolute;

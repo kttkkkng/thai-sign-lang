@@ -57,7 +57,7 @@ body * {
 
 }
 
-.Goal {
+.Library {
     border: none;
     color: white;
     width: 10%;
@@ -75,7 +75,7 @@ body * {
     transform: translate(0%, -50%);
 }
 
-.Library {
+.L {
     border: none;
     color: white;
     position: absolute;
