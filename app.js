@@ -1,4 +1,4 @@
-const url = "http://ec2-175-41-163-195.ap-southeast-1.compute.amazonaws.com:3000";
+const url = "http://localhost:3000";
 
 let question = [];
 let words = [];
