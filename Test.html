@@ -24,8 +24,21 @@
             <button class="Choice4" @click="selectAnswer(3)">คำตอบ 4</button>
             <button id="check" class="Next" @click="nextTestQuestion">ตรวจคำตอบ</button>
             <img class="Back" src="Picture/CrossB.png" @click="goToUnit" alt="Back" width="50" height="40">
+            <div id="overlay">
+            <div id="text">Overlay Text</div>
+              </div>
         </div>
     </div>
+
+    <script> 
+        function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+      
+      function off() {
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script>
 
     <script src="app.js"></script>
     <script>
@@ -48,7 +61,8 @@
             } catch (err) {
                 //TODO 403
                 console.log(err);
-                alert("failed to connect to backend");
+                alert("Please study previous section to unlock this section!");
+                window.location = "/unit.html";
             }
 
             question = response.data.question;
@@ -69,7 +83,7 @@
             });
         };
 
-        //get_question();
+        get_question();
     </script>
 </body>
 </html>

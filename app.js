@@ -20,6 +20,15 @@ const app = Vue.createApp({
             return $cookies.get("unit");
         };
     },
+    mounted () {
+        const name = document.getElementById("name");
+
+        if (name) {
+            if ($cookies.isKey("name")) {
+                document.getElementById("name").textContent = $cookies.get("name");
+            }
+        }
+    },
     data () {
         return {
             username: "",
@@ -54,6 +63,15 @@ const app = Vue.createApp({
         goToCameraTest () {
             window.location = "/camera.html";
         },
+        goToLibrary () {
+            window.location = "/Library.html";
+        },
+        goToLibrary_Unit1 (){
+            window.location = "/Library_Unit1.html";
+        },
+        goToLibrary_Unit2 (){
+            window.location = "/Library_Unit2.html";
+        },
         async login () {
             if (this.username == "" || this.password == "") {
                 alert("please enter username and password");
@@ -73,7 +91,8 @@ const app = Vue.createApp({
                         return alert("cannot connect to backend");
                     }
                 }
-                $cookies.set("token", response.data.token,  "7d");
+                $cookies.set("token", response.data.token, "7d");
+                $cookies.set("name", response.data.username, "7d");
 
                 window.location = "/unit.html";
             }
@@ -100,6 +119,7 @@ const app = Vue.createApp({
                     }
                 }
                 alert("success");
+                window.location = "/index.html";
             }
         },
         async toggleCamera() {
@@ -127,7 +147,7 @@ const app = Vue.createApp({
 
                 timer = setInterval(() => {
                     capture();
-                }, 200);
+                }, 700);
             }
         },
         async capture () {

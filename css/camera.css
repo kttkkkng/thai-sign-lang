@@ -33,11 +33,21 @@ video {
     color: greenyellow;
 }
 
+.Predict {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: whitesmoke;
+}
+
 .Cap {
     position: absolute;
     left: 90%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    opacity: 0.0;
 }
 
 .Back {
